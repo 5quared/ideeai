@@ -30,15 +30,15 @@ jobs:
             - name: Run tests
               shell: bash
               run: |
-                    yarn workspace @5quared/idee test
+                    yarn workspace @5quared/idee-app test
 
             - name: Build web app
               shell: bash
               run: |
-                    yarn workspace @5quared/idee build:pages
+                    yarn workspace @5quared/idee-app build:pages
 
             - uses: actions/upload-artifact@v4
               with:
                   name: idee_pwa_pages
-                  path: ${{ github.workspace }}/packages/idee/build/pages
+                  path: ${{ github.workspace }}/packages/idee-app/build/pages
                   retention-days: 1
