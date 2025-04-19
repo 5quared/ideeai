@@ -18,6 +18,7 @@ interface ConfigParams {
     relocatable: boolean;
     extractCss: boolean;
     cssIdentifier: string;
+    publicPath?: string;
 }
 
 const CONFIG_PATH = 'static/config.[contenthash].json';
@@ -31,6 +32,7 @@ export function configure(params: ConfigParams): Partial<Configuration> {
         },
         output: {
             path: params.buildDir,
+            publicPath: params.publicPath,
             filename: 'static/js/[name].[contenthash].js',
             chunkFilename: 'static/js/[name].[contenthash].js',
             assetModuleFilename: 'static/assets/[name].[contenthash][ext]',

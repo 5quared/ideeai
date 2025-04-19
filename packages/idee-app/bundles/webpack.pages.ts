@@ -12,6 +12,7 @@ const base = configure({
     mode: 'production',
     target: 'web',
     buildDir: url.fileURLToPath(new URL('../build/pages', import.meta.url)),
+    publicPath: "ideeai",
     tsLoaderOptions: {
         compilerOptions: {
             sourceMap: false,
