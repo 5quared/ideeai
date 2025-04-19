@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "esModuleInterop": false,
+        "downlevelIteration": true,
+        "isolatedModules": true,
+        "strict": true,
+        "jsx": "react",
+        "types": [
+            "node",
+            "jest"
+        ],
+        "lib": [
+            "es6",
+            "es2020",
+            "dom"
+        ]
+    }
+}

@@ -1,0 +1,44 @@
+name: Build
+
+on:
+    workflow_call:
+        inputs:
+            commit:
+                required: true
+                type: string
+            signed:
+                required: false
+                type: boolean
+                default: false
+
+jobs:
+    pwa:
+        name: App / Web / ${{ matrix.build.name }}
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  submodules: 'recursive'
+                  fetch-depth: 0
+                  ref: ${{ github.event.inputs.sha || github.sha }}
+
+            - name: Install npm dependencies
+              shell: bash
+              run: |
+                  yarn install --frozen-lockfile
+
+            - name: Run tests
+              shell: bash
+              run: |
+                    yarn workspace @5quared/idee test
+
+            - name: Build web app
+              shell: bash
+              run: |
+                    yarn workspace @5quared/idee build:pages
+
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: idee_pwa_pages
+                  path: ${{ github.workspace }}/packages/idee/build/pages
+                  retention-days: 1

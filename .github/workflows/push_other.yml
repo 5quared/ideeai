@@ -1,0 +1,18 @@
+name: Branch
+
+on:
+    push:
+        branches-ignore:
+            - 'main'
+            - 'renovate/*'
+            - 'akohn-publish'
+            - 'akohn-tauri'
+
+jobs:
+    build:
+        name: Build
+        uses: ./.github/workflows/build.yml
+        with:
+            commit: github.event.inputs.sha
+            signed: false
+        secrets: inherit
