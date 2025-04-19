@@ -108,7 +108,7 @@ export function configure(params: ConfigParams): Partial<Configuration> {
                 chunks: ['app'],
                 template: './static/index.html',
                 filename: './index.html',
-                base: './'
+                base: '/'
             }),
             new MiniCssExtractPlugin({
                 filename: './static/css/[id].[contenthash].css',
