@@ -103,6 +103,9 @@ export function configure(params: ConfigParams): Partial<Configuration> {
             moduleIds: 'deterministic',
         },
         plugins: [
+            new webpack.DefinePlugin({
+                'process.env.PUBLIC_URL': JSON.stringify(params.publicPath ?? '/'),
+            }),
             new ForkTsCheckerWebpackPlugin(),
             new HtmlWebpackPlugin({
                 chunks: ['app'],
