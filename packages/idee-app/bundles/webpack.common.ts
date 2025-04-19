@@ -106,7 +106,7 @@ export function configure(params: ConfigParams): Partial<Configuration> {
                 chunks: ['app'],
                 template: './static/index.html',
                 filename: './index.html',
-                base: params.relocatable ? './' : '/',
+                base: './'
             }),
             new MiniCssExtractPlugin({
                 filename: './static/css/[id].[contenthash].css',
