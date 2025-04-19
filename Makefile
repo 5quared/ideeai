@@ -11,3 +11,4 @@ pwa_pages:
 pwa_dev:
 	yarn workspace @5quared/idee-app serve:dev
 
+
