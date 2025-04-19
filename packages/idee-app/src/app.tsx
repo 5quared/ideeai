@@ -4,14 +4,12 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import { HelloWorld } from './hello_world.js';
 
-const Router = BrowserRouter;
-
 const element = document.getElementById('root');
 const root = createRoot(element!);
 root.render(
-    <Router>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
             <Route index Component={HelloWorld} />
         </Routes>
-    </Router>
+    </BrowserRouter>
 );
